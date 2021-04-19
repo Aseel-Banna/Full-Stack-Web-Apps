@@ -8,3 +8,14 @@ Structure:
 * SongrController: it is used to make three instances of albums and add them to a list and then render them in HTML file.
 
 Also, there is a test file to test Album class with their setters and getters.
+
+
+# Lab: 12 - Spring RESTful Routing
+
+In this lab, I updated Album model so that it can be saved in a database. Also, I allowed the user to see information about all the albums on the site, and add albums to the site.
+
+Structure:
+* Album: this is a class that contains title, artist, length, song counts and image url. And I defined setters and getters for them. Also, it has an id.
+* AlbumRepository which is extended from CRUDRepository.
+* SongrController: which has a route for ***albums*** it will display all albums in data base. Also, there is ***addAlbum*** route which has a form to add an album to the database.
+
