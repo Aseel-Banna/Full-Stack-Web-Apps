@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class AppController {
 
+    @GetMapping("/")
+    public String makeSplashPage(){
+
+        return "home.html";
+    }
+
     @GetMapping("/hello")
     public String showHelloWorld(){
         return "template.html";
@@ -19,5 +25,7 @@ public class AppController {
         m.addAttribute("sentence",sentence);
         return "capitalize.html";
     }
+
+
 
 }

@@ -19,3 +19,16 @@ Structure:
 * AlbumRepository which is extended from CRUDRepository.
 * SongrController: which has a route for ***albums*** it will display all albums in data base. Also, there is ***addAlbum*** route which has a form to add an album to the database.
 
+
+
+# Lab:  - Related Resources and Integration Testing
+
+In this lab, I have created a new model for songs and create a relation between them and albums model.
+
+Structure:
+* Album: this is a class that contains title, artist, length, song counts and image url. And I defined setters and getters for them. Also, it has an id.
+* AlbumRepository which is extended from CRUDRepository.
+* SongrController: which has a route for ***albums*** it will display all albums in data base. Also, there is ***addAlbum*** route which has a form to add an album to the database.
+* Songs: this is a class that contains title, length and track number. And I defined setters and getters for them. Also, it has an id, and it is related to albums.
+* AlbumRepository which is extended from JpaRepository.
+* * SongController: which has a route for ***songs*** it will display all songs in data base. Also, there is ***addSong*** route which has a form to add a song to the database.
