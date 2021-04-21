@@ -22,7 +22,7 @@ public class AppController {
 
     @GetMapping("/capitalize/{sentence}")
     public String showTemplate(Model m, @PathVariable("sentence") String sentence){
-        m.addAttribute("sentence",sentence);
+        m.addAttribute("sentence",sentence.toUpperCase());
         return "capitalize.html";
     }
 

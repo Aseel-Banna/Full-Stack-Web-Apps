@@ -9,10 +9,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
 @SpringBootTest
 @AutoConfigureMockMvc
-class SongrRoutesTest {
+public class AppControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -22,39 +21,46 @@ class SongrRoutesTest {
     }
 
     @Test
-    public void testSongsRoute() throws Exception {
+    public void testHelloRoute() throws Exception {
         this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/songs"))
+                .perform(MockMvcRequestBuilders.get("/hello"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(
-                        org.hamcrest.Matchers.containsString("<h1>All Songs!</h1>")));
+                        org.hamcrest.Matchers.containsString("<h1>Hello World!</h1>")));
+    }
+    @Test
+    public void testRootRoute() throws Exception {
+        this.mockMvc
+                .perform(MockMvcRequestBuilders.get("/"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.content().string(
+                        org.hamcrest.Matchers.containsString("<h1>Songs Application</h1>")));
     }
 
     @Test
-    public void testAddSongRoute() throws Exception {
+    public void testCapitalizeRoute() throws Exception {
         this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/addSong"))
+                .perform(MockMvcRequestBuilders.get("/capitalize/hello"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(
-                        org.hamcrest.Matchers.containsString("<h2>New Song</h2>")));
+                        org.hamcrest.Matchers.containsString("<p>HELLO</p>")));
     }
 
     @Test
-    public void testAddAlbumRoute() throws Exception {
+    public void testCapitalizeRoute2() throws Exception {
         this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/addAlbum"))
+                .perform(MockMvcRequestBuilders.get("/capitalize/APP"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(
-                        org.hamcrest.Matchers.containsString("<h2>New Album</h2>")));
+                        org.hamcrest.Matchers.containsString("<p>APP</p>")));
     }
 
     @Test
-    public void testAlbumRoute() throws Exception {
+    public void testCapitalizeRoute3() throws Exception {
         this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/albums"))
+                .perform(MockMvcRequestBuilders.get("/capitalize/"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(
-                        org.hamcrest.Matchers.containsString("<h1>Welcome to the albums list!</h1>")));
+                        org.hamcrest.Matchers.containsString("")));
     }
-
 }

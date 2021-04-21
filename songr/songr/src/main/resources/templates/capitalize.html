@@ -8,9 +8,14 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
     <link rel="stylesheet" href="style.css">
+    <style>
+        p{
+        text-transform: uppercase
+        }
+    </style>
 </head>
 
 <body>
-<p class="capital" style="text-transform: uppercase" th:text=${sentence}></p>
+<p th:text=${sentence}></p>
 </body>
 </html>
